@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Return Management System</title>
+    <link rel="stylesheet" href="cse326.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">Return<span>Ease</span></div>
+    <div class="header-right">Order Return Management System</div>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Dashboard</h3>
+        <button class="nav-btn active" data-page="home">Overview</button>
+        <button class="nav-btn" data-page="request">New Return</button>
+        <button class="nav-btn" data-page="manage">Manage Returns</button>
+        <button class="nav-btn" data-page="track">Track Return</button>
+    </aside>
+
+    <main class="main">
+
+        <!-- Dashboard -->
+        <section id="home" class="page active">
+            <h1>Welcome to ReturnEase</h1>
+            <p class="subtitle">Manage customer returns easily and efficiently.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Total Requests</h3>
+                    <p id="totalCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending</h3>
+                    <p id="pendingCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Approved</h3>
+                    <p id="approvedCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Rejected</h3>
+                    <p id="rejectedCount">0</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div>01. Submit Return Request</div>
+                    <div>02. Verify Order Details</div>
+                    <div>03. Admin Reviews Request</div>
+                    <div>04. Refund Processing</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Sample Orders for Testing</h2>
+                <p>Order ID: ORD1001 | Product: Wireless Headphones</p>
+                <p>Order ID: ORD1002 | Product: Smart Watch</p>
+                <p>Order ID: ORD1003 | Product: Keyboard</p>
+                <small>These are demo orders created for this project.</small>
+            </div>
+        </section>
+
+        <!-- New Return -->
+        <section id="request" class="page">
+            <h1>Submit a Return Request</h1>
+            <p class="subtitle">Enter your order details to request a return.</p>
+
+            <div class="panel">
+                <form id="returnForm">
+
+                    <label>Customer Name</label>
+                    <input type="text" id="customerName"
+                        placeholder="Enter your name" required>
+
+                    <label>Order ID</label>
+                    <input type="text" id="orderId"
+                        placeholder="Example: ORD1001" required>
+
+                    <button type="button" id="checkOrder" class="secondary">
+                        Check Order
+                    </button>
+
+                    <div id="orderDetails" class="order-details"></div>
+
+                    <label>Reason for Return</label>
+                    <select id="reason" required>
+                        <option value="">Select a reason</option>
+                        <option>Damaged Product</option>
+                        <option>Wrong Product Delivered</option>
+                        <option>Product Not Working</option>
+                        <option>Size or Fit Issue</option>
+                        <option>Product Not as Described</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label>Additional Description</label>
+                    <textarea id="description"
+                        placeholder="Explain your problem..."></textarea>
+
+                    <button type="submit" class="primary">
+                        Submit Return Request
+                    </button>
+
+                    <p id="formMessage"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Manage Returns -->
+        <section id="manage" class="page">
+            <h1>Manage Return Requests</h1>
+            <p class="subtitle">Admin can review and process customer requests.</p>
+
+            <div class="panel table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Customer</th>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="returnTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Track Return -->
+        <section id="track" class="page">
+            <h1>Track Your Return</h1>
+            <p class="subtitle">Check the latest status of your return request.</p>
+
+            <div class="panel">
+                <label>Enter Request ID</label>
+                <input type="text" id="trackingId"
+                    placeholder="Example: RET1001">
+
+                <button class="primary" id="trackButton">
+                    Track Request
+                </button>
+
+                <div id="trackingResult"></div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <p>©️ 2026 ReturnEase | Order Return Management System</p>
+</footer>
+
+<script src="cse326.js"></script>
+</body>
+</html>
